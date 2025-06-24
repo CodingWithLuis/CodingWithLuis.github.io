@@ -13,7 +13,7 @@ permalink: /about/
                          <!-- alt="Foto de perfil" -->
                          <!-- style="max-width: 200px;"> -->
                     <h1 class="display-4 fw-bold">{{ site.title }}</h1>
-                    <p class="lead text-muted">Desarrollador, YouTuber, Docente y Escritor</p>
+                    <p class="lead text-muted">Desarrollador, Freelance, YouTuber, Docente y Escritor</p>
                 </div>
 
                 <div class="post-content">
