@@ -1,0 +1,137 @@
+---
+layout: default
+---
+
+<article class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Post Header -->
+                <header class="mb-4">
+                    <h1 class="display-5 fw-bold mb-3">{{ page.title }}</h1>
+
+                    <div class="post-meta d-flex flex-wrap align-items-center gap-3 mb-4 text-muted">
+                        <span>
+                            <i class="bi bi-calendar3"></i>
+                            {{ page.date | date: "%d de %B de %Y" }}
+                        </span>
+                        {% if page.author %}
+                        <span>
+                            <i class="bi bi-person"></i>
+                            {{ page.author }}
+                        </span>
+                        {% endif %}
+                        {% if page.reading_time %}
+                        <span>
+                            <i class="bi bi-clock"></i>
+                            {{ page.reading_time }} min de lectura
+                        </span>
+                        {% endif %}
+                    </div>
+
+                    {% if page.tags %}
+                    <div class="post-tags mb-4">
+                        {% for tag in page.tags %}
+                        <span class="badge bg-primary bg-opacity-10 text-primary me-2">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.image %}
+                    <div class="post-image mb-4">
+                        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}"
+                            class="img-fluid rounded shadow">
+                    </div>
+                    {% endif %}
+                </header>
+
+                <!-- Post Content -->
+                <div class="post-content">
+                    {{ content }}
+                </div>
+
+                <!-- Post Footer -->
+                <footer class="post-footer mt-5 pt-4 border-top">
+                    <!-- Share Buttons -->
+                    <div class="share-buttons mb-4">
+                        <h6 class="mb-3">Compartir este artículo:</h6>
+                        <div class="d-flex gap-2">
+                            <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ page.url | absolute_url | uri_escape }}"
+                                class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="bi bi-twitter"></i> Twitter
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | uri_escape }}"
+                                class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="bi bi-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | uri_escape }}"
+                                class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="bi bi-facebook"></i> Facebook
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="post-navigation">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% if page.previous %}
+                                <div class="nav-previous">
+                                    <small class="text-muted">Anterior</small>
+                                    <div>
+                                        <a href="{{ page.previous.url | relative_url }}" class="text-decoration-none">
+                                            {{ page.previous.title }}
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                {% if page.next %}
+                                <div class="nav-next">
+                                    <small class="text-muted">Siguiente</small>
+                                    <div>
+                                        <a href="{{ page.next.url | relative_url }}" class="text-decoration-none">
+                                            {{ page.next.title }}
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Related Posts -->
+{% assign related_posts = site.related_posts | limit: 3 %}
+{% if related_posts.size > 0 %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="mb-4">Artículos relacionados</h3>
+                <div class="row">
+                    {% for post in related_posts %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    <a href="{{ post.url | relative_url }}" class="text-decoration-none">
+                                        {{ post.title }}
+                                    </a>
+                                </h6>
+                                <small class="text-muted">{{ post.date | date: "%d %B %Y" }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

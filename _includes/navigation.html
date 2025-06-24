@@ -1,0 +1,27 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ '/' | relative_url }}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ '/about' | relative_url }}">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ '/blog' | relative_url }}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ '/projects' | relative_url }}">Proyectos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
