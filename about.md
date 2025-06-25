@@ -44,15 +44,6 @@ permalink: /about/
                     
                     <div class="row mt-4">
                         <div class="col-md-6">
-                            <h5>Frontend</h5>
-                            <div class="mb-3">
-                                <span class="badge bg-primary me-2">JavaScript</span>
-                                <span class="badge bg-primary me-2">Vue.js</span>
-                                <span class="badge bg-primary me-2">Bootstrap</span>
-                                <span class="badge bg-primary me-2">TailwindCSS</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
                             <h5>Backend</h5>
                             <div class="mb-3">
                                 <span class="badge bg-success me-2">PHP</span>
@@ -60,6 +51,15 @@ permalink: /about/
                                 <span class="badge bg-success me-2">C#</span>
                                 <span class="badge bg-success me-2">ASP.NET</span>
                                 <span class="badge bg-success me-2">Typescript</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Frontend</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">JavaScript</span>
+                                <span class="badge bg-primary me-2">Vue.js</span>
+                                <span class="badge bg-primary me-2">Bootstrap</span>
+                                <span class="badge bg-primary me-2">TailwindCSS</span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -77,6 +77,14 @@ permalink: /about/
                                 <span class="badge bg-secondary me-2">Docker</span>
                                 <span class="badge bg-secondary me-2">GitHub</span>
                                 <span class="badge bg-secondary me-2">Linux</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Markup & Templates</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-warning me-2">HTML</span>
+                                <span class="badge bg-warning me-2">Markdown</span>
+                                <span class="badge bg-warning me-2">Liquid</span>
                             </div>
                         </div>
                     </div>
