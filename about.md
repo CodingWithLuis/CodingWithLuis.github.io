@@ -13,7 +13,7 @@ permalink: /about/
                          <!-- alt="Foto de perfil" -->
                          <!-- style="max-width: 200px;"> -->
                     <h1 class="display-4 fw-bold">{{ site.title }}</h1>
-                    <p class="lead text-muted">Desarrollador, Freelance, YouTuber, Docente y Escritor</p>
+                    <p class="lead text-muted">Desarrollador, Freelance, YouTuber, Docente y Blogger</p>
                 </div>
 
                 <div class="post-content">
@@ -28,7 +28,9 @@ permalink: /about/
 
                     <h3>Mi trayectoria</h3>
                     
-                    <p>Con más de X años de experiencia en el desarrollo de software y la investigación académica, he tenido la oportunidad de trabajar en diversos proyectos que van desde aplicaciones web hasta sistemas de análisis de datos complejos.</p>
+                    <p>Mi pasión por la programación comenzó en 2011 cuando inicié mis estudios en Ingeniería en Sistemas Informáticos, donde di mis primeros pasos con C++ y C. Desde entonces, no he dejado de programar. A partir de 2020, he desarrollado mi carrera como freelance especializado en Laravel, creando soluciones diversas que van desde sistemas de administración de personal hasta sistemas agrícolas y desarrollo de APIs robustas.</p>
+
+                    <p>Paralelamente, en 2021 lancé mi canal de YouTube donde comparto mi conocimiento a través de tutoriales, tips, cursos y buenas prácticas de programación, contribuyendo así a la comunidad de desarrolladores. Esta experiencia me llevó naturalmente a la docencia, y desde 2023 tengo el privilegio de formar a la próxima generación de programadores como profesor universitario, impartiendo materias de programación y bases de datos.</p>
 
                     <blockquote>
                         "La mejor manera de aprender es enseñando y compartiendo conocimiento con otros."

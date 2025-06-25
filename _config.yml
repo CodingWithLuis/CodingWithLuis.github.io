@@ -4,7 +4,7 @@ email: tu.email@ejemplo.com
 description: >-
   Un blog personal enfocado en programación, donde comparto tips, tutoriales y buenas prácticas sobre desarrollo web y tecnología.
 baseurl: "" # subpath of your site, e.g. /blog
-url: "https://tudominio.com" # base hostname & protocol
+url: "https://codingwithluis.github.io" # base hostname & protocol
 github_username: CodingWithLuis
 youtube_username: '@codewithluis'
 
