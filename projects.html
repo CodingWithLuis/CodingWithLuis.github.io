@@ -1,10 +1,235 @@
 ---
-layout: projects
-title: Proyectos
+layout: default
+title: Projects
 permalink: /projects/
 ---
 
 <div class="py-5">
     <div class="container">
+        <!-- Header -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Proyectos</h1>
+                <p class="lead text-muted">Portafolio de proyectos de desarrollo web, aplicaciones y soluciones digitales</p>
+            </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="filter-buttons">
+                    <button class="btn btn-outline-primary active me-2 mb-2" data-filter="all">All Projects</button>
+                    {% assign categories = site.projects | map: 'category' | uniq | compact %}
+                    {% for category in categories %}
+                    <button class="btn btn-outline-primary me-2 mb-2" data-filter="{{ category | slugify }}">{{ category }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="row" id="projectsContainer">
+            {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+            {% for project in sorted_projects %}
+            <div class="col-lg-6 mb-4 project-item" 
+                 data-title="{{ project.title | downcase }}"
+                 data-content="{{ project.content | strip_html | downcase }}"
+                 data-category="{{ project.category | slugify }}">
+                <article class="card h-100 border-0 shadow-sm">
+                    {% if project.image %}
+                    <div class="position-relative">
+                        <img src="{{ project.image | relative_url }}" class="card-img-top" alt="{{ project.title }}">
+                        {% if project.status %}
+                        <span class="position-absolute top-0 end-0 m-2 badge 
+                            {% case project.status %}
+                                {% when 'Completed' or 'Completado' %}bg-success
+                                {% when 'In Progress' or 'En progreso' %}bg-warning text-dark
+                                {% when 'Planned' or 'Planificado' %}bg-info
+                                {% else %}bg-secondary
+                            {% endcase %}">
+                            {{ project.status }}
+                        </span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h2 class="card-title h5">
+                            <a href="{{ project.url | relative_url }}" class="text-decoration-none">
+                                {{ project.title }}
+                            </a>
+                        </h2>
+
+                        <p class="card-text text-muted">
+                            {% if project.excerpt %}
+                                {{ project.excerpt | strip_html | truncate: 150 }}
+                            {% elsif project.objective %}
+                                {{ project.objective | truncate: 150 }}
+                            {% else %}
+                                {{ project.content | strip_html | truncate: 150 }}
+                            {% endif %}
+                        </p>
+
+                        <div class="project-meta mb-3">
+                            <small class="text-muted">
+                                <i class="bi bi-calendar3"></i>
+                                {{ project.date | date: "%B %Y" }}
+                                {% if project.client %}
+                                | <i class="bi bi-building"></i> {{ project.client }}
+                                {% endif %}
+                                {% if project.duration %}
+                                | <i class="bi bi-clock"></i> {{ project.duration }}
+                                {% endif %}
+                            </small>
+                        </div>
+
+                        {% if project.category %}
+                        <div class="project-category mb-3">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">{{ project.category }}</span>
+                        </div>
+                        {% endif %}
+
+                        {% if project.technologies %}
+                        <div class="project-technologies mb-3">
+                            {% for tech in project.technologies limit:3 %}
+                            <span class="badge bg-light text-dark me-1">{{ tech }}</span>
+                            {% endfor %}
+                            {% if project.technologies.size > 3 %}
+                            <span class="badge bg-light text-dark">+{{ project.technologies.size | minus: 3 }} more</span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        <div class="d-flex gap-2">
+                            {% if project.demo_url %}
+                            <a href="{{ project.demo_url }}" class="btn btn-outline-success btn-sm" target="_blank" rel="noopener">
+                                <i class="bi bi-play-circle"></i> Demo
+                            </a>
+                            {% endif %}
+                            {% if project.repo_url %}
+                            <a href="{{ project.repo_url }}" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">
+                                <i class="bi bi-github"></i> Code
+                            </a>
+                            {% endif %}
+                            <a href="{{ project.url | relative_url }}" class="btn btn-outline-primary btn-sm ms-auto">
+                                View Details <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- No results message -->
+        <div id="noResults" class="text-center py-5" style="display: none;">
+            <div class="text-muted">
+                <i class="bi bi-folder2-open display-1 mb-3"></i>
+                <h3>No projects found</h3>
+                <p>Try selecting a different category or check back later for new projects.</p>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        {% if paginator.total_pages > 1 %}
+        <nav aria-label="Project pagination" class="mt-5">
+            <ul class="pagination justify-content-center">
+                {% if paginator.previous_page %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% for page in (1..paginator.total_pages) %}
+                <li class="page-item {% if page == paginator.page %}active{% endif %}">
+                    {% if page == paginator.page %}
+                    <span class="page-link">{{ page }}</span>
+                    {% else %}
+                    <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+
+                {% if paginator.next_page %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
 </div>
+
+<!-- Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const projectItems = document.querySelectorAll('.project-item');
+    const noResultsMessage = document.getElementById('noResults');
+    const projectsContainer = document.getElementById('projectsContainer');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            let visibleCount = 0;
+            
+            // Filter projects
+            projectItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide empty state
+            if (visibleCount === 0) {
+                projectsContainer.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+            } else {
+                projectsContainer.style.display = 'flex';
+                noResultsMessage.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+
+<style>
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.filter-buttons .btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-buttons .btn.active {
+    background-color: var(--bs-primary);
+    color: white;
+    border-color: var(--bs-primary);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+</style>
