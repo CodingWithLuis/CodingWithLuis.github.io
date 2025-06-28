@@ -18,7 +18,7 @@ permalink: /projects/
         <div class="row mb-4">
             <div class="col-12">
                 <div class="filter-buttons">
-                    <button class="btn btn-outline-primary active me-2 mb-2" data-filter="all">All Projects</button>
+                    <button class="btn btn-outline-primary active me-2 mb-2" data-filter="all">Ver todos los proyectos</button>
                     {% assign categories = site.projects | map: 'category' | uniq | compact %}
                     {% for category in categories %}
                     <button class="btn btn-outline-primary me-2 mb-2" data-filter="{{ category | slugify }}">{{ category }}</button>
@@ -108,11 +108,11 @@ permalink: /projects/
                             {% endif %}
                             {% if project.repo_url %}
                             <a href="{{ project.repo_url }}" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener">
-                                <i class="bi bi-github"></i> Code
+                                <i class="bi bi-github"></i> Código
                             </a>
                             {% endif %}
                             <a href="{{ project.url | relative_url }}" class="btn btn-outline-primary btn-sm ms-auto">
-                                View Details <i class="bi bi-arrow-right"></i>
+                                Ver detalles <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -125,8 +125,8 @@ permalink: /projects/
         <div id="noResults" class="text-center py-5" style="display: none;">
             <div class="text-muted">
                 <i class="bi bi-folder2-open display-1 mb-3"></i>
-                <h3>No projects found</h3>
-                <p>Try selecting a different category or check back later for new projects.</p>
+                <h3>No se encontraron proyectos</h3>
+                <p>Intente seleccionando una categoría diferente</p>
             </div>
         </div>
 
