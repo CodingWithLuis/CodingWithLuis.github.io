@@ -123,6 +123,16 @@ permalink: /about/
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-telegram text-primary me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <strong>Telegram</strong><br>
+                                    <a href="https://t.me/+QbzMzQnbCZZlNGYx" target="_blank">Grupo Laravel</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <hr class="my-5">
