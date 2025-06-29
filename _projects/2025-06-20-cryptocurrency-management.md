@@ -8,7 +8,7 @@ status: "Completado"
 category: "Desarrollo Web"
 technologies: ["Laravel", "Livewire", "Javascript", "Bootstrap"]
 tags: ["desarrollo web", "laravel", "bitcoin", "tether"]
-image: "/assets/images/project-main.jpg"
+image: "/assets/images/projects/cryptocurrency/banner_cryptocurrency_project.png"
 gallery:
   - "/assets/images/project-1.jpg"
   - "/assets/images/project-2.jpg"
