@@ -10,9 +10,9 @@ technologies: ["Laravel", "Livewire", "Javascript", "Bootstrap"]
 tags: ["desarrollo web", "laravel", "bitcoin", "tether"]
 image: "/assets/images/projects/cryptocurrency/banner_cryptocurrency_project.png"
 gallery:
-  - "/assets/images/project-1.jpg"
-  - "/assets/images/project-2.jpg"
-  - "/assets/images/project-3.jpg"
+  - "/assets/images/projects/cryptocurrency/cryptocurrency_users_approved.png"
+  - "/assets/images/projects/cryptocurrency/cryptocurrency_comissions.png"
+  - "/assets/images/projects/cryptocurrency/cryptocurrency_limit_purchase.png"
 ---
 
 ## 📈 Resumen del Proyecto
