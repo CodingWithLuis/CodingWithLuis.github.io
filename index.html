@@ -71,15 +71,15 @@ layout: default
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="h3 mb-4">Proyectos Destacados</h2>
+                <h2 class="h3 mb-4">Proyectos</h2>
             </div>
         </div>
         <div class="row">
-            {% for project in site.projects limit:2 %}
-            <div class="col-md-6 mb-4">
+            {% for project in site.projects limit:3 %}
+            <div class="col-md-4 mb-4">
                 <div class="card h-100 border-0 shadow-sm">
                     {% if project.image %}
-                    <img src="{{ project.image | relative_url }}" class="card-img-top" alt="{{ project.title }}">
+                    <img src="{{ project.image | relative_url }}" class="img-fluid rounded shadow-sm" alt="{{ project.title }}">
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">

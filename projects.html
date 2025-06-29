@@ -31,14 +31,14 @@ permalink: /projects/
         <div class="row" id="projectsContainer">
             {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
             {% for project in sorted_projects %}
-            <div class="col-lg-6 mb-4 project-item" 
+            <div class="col-lg-4 mb-4 project-item" 
                  data-title="{{ project.title | downcase }}"
                  data-content="{{ project.content | strip_html | downcase }}"
                  data-category="{{ project.category | slugify }}">
                 <article class="card h-100 border-0 shadow-sm">
                     {% if project.image %}
                     <div class="position-relative">
-                        <img src="{{ project.image | relative_url }}" class="card-img-top" alt="{{ project.title }}">
+                        <img src="{{ project.image | relative_url }}" class="img-fluid rounded shadow" alt="{{ project.title }}">
                         {% if project.status %}
                         <span class="position-absolute top-0 end-0 m-2 badge 
                             {% case project.status %}
@@ -59,16 +59,6 @@ permalink: /projects/
                                 {{ project.title }}
                             </a>
                         </h2>
-
-                        <p class="card-text text-muted">
-                            {% if project.excerpt %}
-                                {{ project.excerpt | strip_html | truncate: 150 }}
-                            {% elsif project.objective %}
-                                {{ project.objective | truncate: 150 }}
-                            {% else %}
-                                {{ project.content | strip_html | truncate: 150 }}
-                            {% endif %}
-                        </p>
 
                         <div class="project-meta mb-3">
                             <small class="text-muted">
@@ -95,7 +85,7 @@ permalink: /projects/
                             <span class="badge bg-light text-dark me-1">{{ tech }}</span>
                             {% endfor %}
                             {% if project.technologies.size > 3 %}
-                            <span class="badge bg-light text-dark">+{{ project.technologies.size | minus: 3 }} more</span>
+                            <span class="badge bg-light text-dark">+{{ project.technologies.size | minus: 3 }} más</span>
                             {% endif %}
                         </div>
                         {% endif %}
