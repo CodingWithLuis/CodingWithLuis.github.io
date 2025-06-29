@@ -67,23 +67,23 @@ layout: default
 
                 <!-- Project Content -->
                 <div class="post-content prose">
+                    {{ content }}
+                </div>
 
+                <div class="post-content">
                     <h2>Imágenes del Proyecto</h2>
-
                     {% if page.gallery %}
                     <div class="project-gallery mb-4">
                         <div class="row g-2">
                             {% for image in page.gallery %}
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-12 col-sm-6">
                                 <img src="{{ image | relative_url }}" alt="Project screenshot"
-                                    class="img-fluid rounded shadow-sm" loading="lazy">
+                                    class="img-fluid rounded shadow-sm" loading="lazy" style="min-height: 250px;">
                             </div>
                             {% endfor %}
                         </div>
                     </div>
                     {% endif %}
-
-                    {{ content }}
                 </div>
 
                 <!-- Project Links -->
